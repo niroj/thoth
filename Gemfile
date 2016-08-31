@@ -34,6 +34,8 @@ end
 
 group :test do
   gem 'database_cleaner'
+  gem 'webmock'
+  gem 'vcr'
 end
 
 group :development do
