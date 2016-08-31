@@ -23,6 +23,8 @@ gem 'puma', '~> 3.0'
 #scrapper
 gem 'mechanize'
 
+gem 'active_model_serializers'
+
 group :development, :test do
   gem 'pry-rails'
   gem 'shoulda-matchers'
