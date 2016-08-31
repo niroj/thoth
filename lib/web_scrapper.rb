@@ -11,7 +11,7 @@ class WebSrapper
   end
 
   def valid_url?
-    @url.present? && @url.respond_to?(:match) && @url.match(URI.regexp)
+    @url.present? && @url.respond_to?(:match) && @url.match(URI.regexp).present?
   end
 
   def valid_tag_types?
@@ -22,6 +22,7 @@ class WebSrapper
     error_hash = Hash.new
     error_hash.merge!(url: 'is invalid') unless valid_url?
     error_hash.merge!(tag_types: 'is invalid') unless valid_tag_types?
+    error_hash
   end
 
   def fetch_page
