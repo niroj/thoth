@@ -1,24 +1,33 @@
-# README
+# What
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Thoth is a webpage scrapper. Supplied with a valid url, it scraps the page for content inside 4 tags(currently).
 
-Things you may want to cover:
+# How
+* send url for indexing
+```
+#!curl
 
-* Ruby version
+  curl http://thoth-web-scraper.herokuapp.com/webpages -X POST -H 'Content-Type: application/json' -H 'Accept: application/json' -d '{"webpage":{"url":"http://google.com"}}'
+```
+* see all indexed url
+```
+#!curl
+  curl http://thoth-web-scraper.herokuapp.com/webpages
+```
+* see only one indexed url(note: you should know the id)
+```
+#!curl
+  curl http://thoth-web-scraper.herokuapp.com/webpages/1
+```
 
-* System dependencies
+# Example App
+* http://thoth-web-scraper.herokuapp.com
+* http://thoth-web-scraper.herokuapp.com/webpages -> all stored webpages
+* http://thoth-web-scraper.herokuapp.com/webpages/1 -> individual webpages
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Technology Stack Used
+* Rails
+* Sidekiq
+* PostgreSql
+* Redis(by sidekiq)
+* [mechanize](https://github.com/sparklemotion/mechanize) to scrap data
