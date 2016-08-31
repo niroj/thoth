@@ -23,7 +23,11 @@ gem 'puma', '~> 3.0'
 #scrapper
 gem 'mechanize'
 
+#for serialization
 gem 'active_model_serializers'
+
+# worker
+gem 'sidekiq'
 
 group :development, :test do
   gem 'pry-rails'
