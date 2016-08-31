@@ -9,24 +9,21 @@ RSpec.describe Webpage, type: :model do
   end
 
   describe "#fetch_page_and_save" do
-    before(:each) do
-      @url = 'http://bootswatch.com/paper'
-    end
     it "should call #fetch_page_and_save on create" do
       expect_any_instance_of(Webpage).to receive(:fetch_page_and_save)
-      webpage = FactoryGirl.create(:webpage, url: @url)
+      webpage = FactoryGirl.create(:webpage, url: TEST_URL)
     end
 
     it "should get the page from given url" do
       VCR.use_cassette('webpage_get_test') do
-        expect_any_instance_of(Mechanize).to receive(:get).with(@url).and_return(Mechanize.new.get(@url))
-        webpage = FactoryGirl.create(:webpage, url: @url)
+        expect_any_instance_of(Mechanize).to receive(:get).with(TEST_URL).and_return(Mechanize.new.get(TEST_URL))
+        webpage = FactoryGirl.create(:webpage, url: TEST_URL)
       end
     end
 
     it "should only store the give tags" do
       VCR.use_cassette('webpage_store_given_tags') do
-        webpage = FactoryGirl.create(:webpage, url: @url)
+        webpage = FactoryGirl.create(:webpage, url: TEST_URL)
         expect(Section.all.collect(&:section_type).uniq.compact.sort).to eql(Section::VALID_TYPES.sort)
       end
     end
@@ -35,9 +32,9 @@ RSpec.describe Webpage, type: :model do
       # if every section is correct and there total number is correct
       # then there should not be wrong records
       VCR.use_cassette('webpage_store_correct_contents') do
-        webpage = FactoryGirl.create(:webpage, url: @url)
+        webpage = FactoryGirl.create(:webpage, url: TEST_URL)
 
-        page = Mechanize.new.get(@url)
+        page = Mechanize.new.get(TEST_URL)
         Section::VALID_TYPES.each do |valid_type|
           page.search(valid_type).each do |tag|
 

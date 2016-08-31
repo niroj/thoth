@@ -1,0 +1,1 @@
+TEST_URL = 'http://bootswatch.com/paper'

@@ -18,7 +18,7 @@ class WebpagesController < ApplicationController
     @webpage = Webpage.new(webpage_params)
 
     if @webpage.save
-      render json: @webpage, status: :created, location: @webpage
+      render json: {message: "The given url will be indexed shortly", webpage: @webpage.as_json(only: [:id, :url])}, status: :created, location: @webpage
     else
       render json: @webpage.errors, status: :unprocessable_entity
     end
