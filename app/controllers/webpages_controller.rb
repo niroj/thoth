@@ -1,5 +1,5 @@
 class WebpagesController < ApplicationController
-  before_action :set_webpage, only: [:show, :update, :destroy]
+  before_action :set_webpage, only: [:show]
 
   # GET /webpages
   def index
@@ -22,20 +22,6 @@ class WebpagesController < ApplicationController
     else
       render json: @webpage.errors, status: :unprocessable_entity
     end
-  end
-
-  # PATCH/PUT /webpages/1
-  def update
-    if @webpage.update(webpage_params)
-      render json: @webpage
-    else
-      render json: @webpage.errors, status: :unprocessable_entity
-    end
-  end
-
-  # DELETE /webpages/1
-  def destroy
-    @webpage.destroy
   end
 
   private
