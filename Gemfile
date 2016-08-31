@@ -22,6 +22,7 @@ gem 'puma', '~> 3.0'
 
 group :development, :test do
   gem 'pry-rails'
+  gem 'shoulda-matchers'
   gem 'factory_girl_rails'
   gem 'rspec-rails'
 end
