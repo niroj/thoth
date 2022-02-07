@@ -1,3 +1,12 @@
+GIT
+  remote: https://github.com/mperham/sidekiq.git
+  revision: 188c87855501e31363ee95455474a3771f03981f
+  specs:
+    sidekiq (6.4.1)
+      connection_pool (>= 2.2.2)
+      rack (~> 2.0)
+      redis (>= 4.2.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -195,10 +204,6 @@ GEM
     rubyntlm (0.6.3)
     shoulda-matchers (5.1.0)
       activesupport (>= 5.2.0)
-    sidekiq (6.4.0)
-      connection_pool (>= 2.2.2)
-      rack (~> 2.0)
-      redis (>= 4.2.0)
     slop (3.6.0)
     sprockets (4.0.2)
       concurrent-ruby (~> 1.0)
@@ -240,7 +245,7 @@ DEPENDENCIES
   rails (~> 6)
   rspec-rails
   shoulda-matchers (~> 5.1)
-  sidekiq (~> 6.4)
+  sidekiq!
   tzinfo-data
   vcr
   webmock (~> 3.14)

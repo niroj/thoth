@@ -28,7 +28,7 @@ gem 'mechanize', '~> 2.8.4'
 gem 'active_model_serializers', '~> 0.10.13'
 
 # worker
-gem 'sidekiq', '~> 6.4'
+gem 'sidekiq', github: 'mperham/sidekiq' # TODO: revert to version, https://github.com/mperham/sidekiq/issues/5178#issuecomment-1029545859
 
 group :development, :test do
   gem 'pry-rails'
